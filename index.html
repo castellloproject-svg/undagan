@@ -1,31 +1,42 @@
-```html
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
+
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
 
-  <meta name="theme-color" content="#F8F5EF">
+>
 
-  <meta
-    name="description"
-    content="Undangan Pernikahan Yustifan & Leta"
-  >
+<meta
+name="theme-color"
+content="#2d434d"
 
-  <meta
-    name="keywords"
-    content="Wedding Invitation, Undangan Pernikahan, Yustifan, Leta"
-  >
+>
+
+<meta
+name="description"
+content="Undangan Pernikahan Yustifan & Leta"
+
+>
+
+<meta
+name="keywords"
+content="Wedding Invitation, Undangan Pernikahan, Yustifan, Leta"
+
+>
 
   <meta property="og:title" content="Yustifan & Leta | The Wedding">
-  <meta
-    property="og:description"
-    content="Dengan penuh kebahagiaan kami mengundang Anda untuk hadir di hari istimewa kami."
-  >
+
+<meta
+property="og:description"
+content="Dengan penuh kebahagiaan kami mengundang Anda untuk hadir di hari istimewa kami."
+
+>
+
   <meta property="og:type" content="website">
 
   <title>Yustifan & Leta | The Wedding</title>
@@ -33,8 +44,14 @@
   <!-- =========================================================
        GOOGLE FONTS
   ========================================================== -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -42,16 +59,9 @@
   >
 
   <!-- =========================================================
-       SWIPER
-  ========================================================== -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-  >
-
-  <!-- =========================================================
        SUPABASE
   ========================================================== -->
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
@@ -61,17 +71,23 @@
     ========================================================== */
 
     :root {
+
       --cream: #f8f5ef;
+
       --ivory: #fffdf8;
+
       --white: #ffffff;
 
       --dusty-blue: #7893a1;
+
       --dusty-dark: #506b78;
 
       --gold: #b99a5b;
+
       --gold-light: #d8c28d;
 
       --deep-blue: #2d434d;
+
       --text: #34464e;
 
       --shadow-soft:
@@ -81,6 +97,7 @@
         0 25px 80px rgba(45, 67, 77, 0.15);
 
       --radius: 24px;
+
     }
 
 
@@ -89,63 +106,214 @@
     ========================================================== */
 
     * {
+
       box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
+
     }
+
 
     html {
+
       scroll-behavior: smooth;
+
       overflow-x: hidden;
+
     }
 
+
     body {
+
       min-height: 100vh;
+
       overflow-x: hidden;
 
-      background:
-        radial-gradient(
-          ellipse at 20% 20%,
-          rgba(255,255,255,0.95),
-          transparent 45%
-        ),
-        radial-gradient(
-          ellipse at 80% 80%,
-          rgba(216,194,141,0.08),
-          transparent 45%
-        ),
-        var(--cream);
+      background: var(--cream);
 
       color: var(--text);
 
       font-family:
         "Poppins",
         sans-serif;
+
     }
+
 
     body.lock-scroll {
+
       overflow: hidden;
+
     }
 
+
     img {
+
       max-width: 100%;
+
       display: block;
+
     }
+
 
     button,
     input,
     select,
     textarea {
+
       font-family: inherit;
+
     }
+
 
     button {
+
       cursor: pointer;
+
     }
 
+
     a {
+
       text-decoration: none;
+
       color: inherit;
+
+    }
+
+
+    /* =========================================================
+       VIDEO BACKGROUND
+    ========================================================== */
+
+    #videoBackground {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: -10;
+
+      overflow: hidden;
+
+      background: #18262c;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+
+    }
+
+
+    #videoBackground.active {
+
+      opacity: 1;
+
+      visibility: visible;
+
+    }
+
+
+    #videoBackground video {
+
+      position: absolute;
+
+      top: 50%;
+
+      left: 50%;
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      transform:
+        translate(-50%, -50%);
+
+      pointer-events: none;
+
+    }
+
+
+    .video-overlay {
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+
+        linear-gradient(
+          to bottom,
+          rgba(15, 25, 30, 0.30),
+          rgba(15, 25, 30, 0.55)
+        );
+
+      pointer-events: none;
+
+    }
+
+
+    /* =========================================================
+       VIDEO SECTION MODE
+    ========================================================== */
+
+    body.video-mode {
+
+      background: transparent;
+
+    }
+
+
+    body.video-mode
+    .marble {
+
+      background:
+
+        rgba(
+          248,
+          245,
+          239,
+          0.72
+        );
+
+      backdrop-filter:
+        blur(2px);
+
+    }
+
+
+    body.video-mode
+    .quote-section {
+
+      background:
+
+        rgba(
+          255,
+          255,
+          255,
+          0.82
+        );
+
+      backdrop-filter:
+        blur(3px);
+
+    }
+
+
+    body.video-mode
+    .section {
+
+      transition:
+        background 1s ease;
+
     }
 
 
@@ -154,6 +322,7 @@
     ========================================================== */
 
     .section {
+
       position: relative;
 
       width: 100%;
@@ -165,9 +334,12 @@
         20px;
 
       overflow: hidden;
+
     }
 
+
     .section-inner {
+
       position: relative;
 
       z-index: 10;
@@ -178,9 +350,12 @@
 
       margin:
         0 auto;
+
     }
 
+
     .section-label {
+
       font-family:
         "Playfair Display",
         serif;
@@ -195,9 +370,12 @@
       text-transform: uppercase;
 
       text-align: center;
+
     }
 
+
     .section-title {
+
       margin-top: 15px;
 
       font-family:
@@ -219,9 +397,12 @@
         var(--dusty-dark);
 
       text-align: center;
+
     }
 
+
     .gold-line {
+
       width: 70px;
 
       height: 1px;
@@ -231,14 +412,16 @@
 
       background:
         var(--gold);
+
     }
 
 
     /* =========================================================
-       MARBLE BACKGROUND
+       MARBLE
     ========================================================== */
 
     .marble {
+
       background:
 
         radial-gradient(
@@ -261,14 +444,16 @@
         ),
 
         var(--cream);
+
     }
 
 
     /* =========================================================
-       FLORAL DECORATION
+       FLORAL
     ========================================================== */
 
     .floral {
+
       position: absolute;
 
       z-index: 2;
@@ -278,43 +463,60 @@
       opacity: 0.9;
 
       user-select: none;
+
     }
 
+
     .floral.tl {
+
       top: -15px;
+
       left: -30px;
 
       width: 190px;
+
     }
 
+
     .floral.tr {
+
       top: -15px;
+
       right: -30px;
 
       width: 190px;
 
       transform:
         scaleX(-1);
+
     }
 
+
     .floral.bl {
+
       bottom: -30px;
+
       left: -30px;
 
       width: 220px;
 
       transform:
         scaleY(-1);
+
     }
 
+
     .floral.br {
+
       bottom: -30px;
+
       right: -30px;
 
       width: 220px;
 
       transform:
         scale(-1);
+
     }
 
 
@@ -323,6 +525,7 @@
     ========================================================== */
 
     .floating-flower {
+
       position: absolute;
 
       z-index: 3;
@@ -337,33 +540,43 @@
         flowerFloat
         linear
         infinite;
+
     }
+
 
     @keyframes flowerFloat {
 
       0% {
+
         transform:
           translateY(110vh)
           rotate(0deg);
 
         opacity: 0;
+
       }
 
       10% {
+
         opacity: 0.5;
+
       }
 
       90% {
+
         opacity: 0.4;
+
       }
 
       100% {
+
         transform:
           translateY(-20vh)
           translateX(50px)
           rotate(360deg);
 
         opacity: 0;
+
       }
 
     }
@@ -374,6 +587,7 @@
     ========================================================== */
 
     .btn {
+
       display: inline-flex;
 
       align-items: center;
@@ -403,9 +617,12 @@
         all
         0.3s
         ease;
+
     }
 
+
     .btn-gold {
+
       color: white;
 
       background:
@@ -421,9 +638,12 @@
           91,
           0.22
         );
+
     }
 
+
     .btn-gold:hover {
+
       transform:
         translateY(-3px);
 
@@ -437,9 +657,12 @@
           91,
           0.32
         );
+
     }
 
+
     .btn-outline {
+
       color:
         var(--dusty-dark);
 
@@ -458,9 +681,12 @@
           91,
           0.55
         );
+
     }
 
+
     .btn-outline:hover {
+
       color: white;
 
       background:
@@ -468,14 +694,17 @@
 
       transform:
         translateY(-3px);
+
     }
 
 
     /* =========================================================
        OPENING SCREEN
+       FULL SCREEN COVER PHOTO
     ========================================================== */
 
     #openingScreen {
+
       position: fixed;
 
       inset: 0;
@@ -490,24 +719,10 @@
 
       overflow: hidden;
 
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(
-            255,
-            255,
-            255,
-            0.97
-          ),
-          rgba(
-            248,
-            245,
-            239,
-            0.98
-          )
-        );
+      background: #18262c;
 
       transition:
+
         opacity
         0.9s
         ease,
@@ -515,33 +730,118 @@
         transform
         1s
         ease;
+
     }
 
+
+    #openingScreen::before {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background-image:
+
+        linear-gradient(
+          rgba(20, 30, 35, 0.25),
+          rgba(20, 30, 35, 0.55)
+        ),
+
+        url("images/cover.jpg");
+
+      background-size: cover;
+
+      background-position: center;
+
+      background-repeat: no-repeat;
+
+      transform:
+        scale(1.03);
+
+      animation:
+        coverZoom
+        12s
+        ease-in-out
+        infinite
+        alternate;
+
+    }
+
+
+    @keyframes coverZoom {
+
+      from {
+
+        transform:
+          scale(1);
+
+      }
+
+      to {
+
+        transform:
+          scale(1.08);
+
+      }
+
+    }
+
+
+    #openingScreen::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.15),
+          rgba(0,0,0,0.55)
+        );
+
+    }
+
+
     #openingScreen.opened {
+
       opacity: 0;
 
       transform:
         scale(1.08);
 
       pointer-events: none;
+
     }
 
+
     .opening-content {
+
       position: relative;
 
       z-index: 10;
 
       width: 100%;
 
-      max-width: 430px;
+      max-width: 500px;
 
       padding:
         30px;
 
       text-align: center;
+
+      color: white;
+
     }
 
+
     .opening-label {
+
       font-family:
         "Playfair Display",
         serif;
@@ -551,11 +851,13 @@
       letter-spacing:
         0.35em;
 
-      color:
-        var(--dusty-dark);
+      color: white;
+
     }
 
+
     .opening-names {
+
       margin-top: 15px;
 
       font-family:
@@ -566,18 +868,31 @@
         clamp(
           65px,
           18vw,
-          100px
+          110px
         );
 
       line-height: 0.95;
 
-      color:
-        var(--dusty-dark);
+      color: white;
+
+      text-shadow:
+        0
+        5px
+        25px
+        rgba(
+          0,
+          0,
+          0,
+          0.25
+        );
+
     }
 
+
     .opening-names span {
+
       color:
-        var(--gold);
+        var(--gold-light);
 
       font-size:
         0.55em;
@@ -585,9 +900,16 @@
       margin:
         0
         7px;
+
     }
 
+
+    /* =========================================================
+       COVER PHOTO FRAME
+    ========================================================== */
+
     .opening-photo {
+
       position: relative;
 
       width: 230px;
@@ -605,47 +927,72 @@
         120px;
 
       border:
-        5px
+        4px
         solid
-        white;
+        rgba(
+          255,
+          255,
+          255,
+          0.8
+        );
 
       box-shadow:
-        var(--shadow-luxury);
+        0
+        20px
+        70px
+        rgba(
+          0,
+          0,
+          0,
+          0.35
+        );
+
     }
 
+
     .opening-photo img {
+
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
+
     }
 
+
     .guest-text {
+
       margin-top: 25px;
 
       font-family:
         "Playfair Display",
         serif;
 
-      color:
-        var(--dusty-dark);
+      color: white;
 
       font-size: 14px;
+
     }
 
+
     .guest-name {
+
       margin-top: 4px;
 
       font-size: 18px;
 
       font-weight: 600;
 
-      color:
-        var(--deep-blue);
+      color: white;
+
     }
 
+
     .open-button {
+
       margin-top: 25px;
+
     }
 
 
@@ -654,6 +1001,7 @@
     ========================================================== */
 
     .hero {
+
       min-height: 100vh;
 
       display: flex;
@@ -663,9 +1011,12 @@
       justify-content: center;
 
       text-align: center;
+
     }
 
+
     .hero-names {
+
       font-family:
         "Great Vibes",
         cursive;
@@ -681,9 +1032,12 @@
 
       color:
         var(--dusty-dark);
+
     }
 
+
     .hero-names span {
+
       color:
         var(--gold);
 
@@ -692,9 +1046,12 @@
 
       margin:
         0 10px;
+
     }
 
+
     .hero-date {
+
       font-family:
         "Playfair Display",
         serif;
@@ -702,11 +1059,13 @@
       letter-spacing:
         0.3em;
 
-      font-size:
-        16px;
+      font-size: 16px;
+
     }
 
+
     .peacock {
+
       width:
         280px;
 
@@ -720,19 +1079,25 @@
         6s
         ease-in-out
         infinite;
+
     }
+
 
     @keyframes floatPeacock {
 
       0%,
       100% {
+
         transform:
           translateY(0);
+
       }
 
       50% {
+
         transform:
           translateY(-12px);
+
       }
 
     }
@@ -743,6 +1108,7 @@
     ========================================================== */
 
     .countdown-section {
+
       min-height:
         auto;
 
@@ -754,19 +1120,26 @@
         white;
 
       background:
+
         linear-gradient(
           135deg,
           var(--dusty-dark),
           var(--deep-blue)
         );
+
     }
+
 
     .countdown-title {
+
       color:
         white;
+
     }
 
+
     .countdown-grid {
+
       display: grid;
 
       grid-template-columns:
@@ -775,8 +1148,7 @@
           1fr
         );
 
-      gap:
-        8px;
+      gap: 8px;
 
       max-width:
         700px;
@@ -785,9 +1157,12 @@
         45px
         auto
         0;
+
     }
 
+
     .count-card {
+
       padding:
         18px
         8px;
@@ -818,9 +1193,12 @@
 
       text-align:
         center;
+
     }
 
+
     .count-number {
+
       font-family:
         "Playfair Display",
         serif;
@@ -831,9 +1209,12 @@
           7vw,
           50px
         );
+
     }
 
+
     .count-label {
+
       margin-top:
         5px;
 
@@ -848,6 +1229,7 @@
 
       opacity:
         0.7;
+
     }
 
 
@@ -856,6 +1238,7 @@
     ========================================================== */
 
     .couple-grid {
+
       display: grid;
 
       grid-template-columns:
@@ -866,14 +1249,20 @@
 
       margin-top:
         70px;
+
     }
+
 
     .person {
+
       text-align:
         center;
+
     }
 
+
     .person-photo {
+
       width:
         260px;
 
@@ -896,9 +1285,12 @@
 
       box-shadow:
         var(--shadow-luxury);
+
     }
 
+
     .person-photo img {
+
       width:
         100%;
 
@@ -907,9 +1299,12 @@
 
       object-fit:
         cover;
+
     }
 
+
     .person-name {
+
       margin-top:
         30px;
 
@@ -922,9 +1317,12 @@
 
       color:
         var(--dusty-dark);
+
     }
 
+
     .person-parents {
+
       max-width:
         350px;
 
@@ -941,6 +1339,7 @@
 
       color:
         var(--dusty-dark);
+
     }
 
 
@@ -949,6 +1348,7 @@
     ========================================================== */
 
     .quote-section {
+
       min-height:
         auto;
 
@@ -957,9 +1357,12 @@
 
       text-align:
         center;
+
     }
 
+
     .quote-mark {
+
       font-family:
         "Playfair Display",
         serif;
@@ -969,9 +1372,12 @@
 
       color:
         var(--gold);
+
     }
 
+
     .quote-text {
+
       max-width:
         800px;
 
@@ -995,9 +1401,12 @@
 
       line-height:
         2;
+
     }
 
+
     .quote-source {
+
       font-family:
         "Playfair Display",
         serif;
@@ -1007,6 +1416,7 @@
 
       font-size:
         13px;
+
     }
 
 
@@ -1015,6 +1425,7 @@
     ========================================================== */
 
     .event-grid {
+
       display:
         grid;
 
@@ -1026,9 +1437,12 @@
 
       margin-top:
         60px;
+
     }
 
+
     .event-card {
+
       padding:
         35px
         25px;
@@ -1062,18 +1476,24 @@
 
       text-align:
         center;
+
     }
 
+
     .event-title {
+
       font-family:
         "Playfair Display",
         serif;
 
       font-size:
         27px;
+
     }
 
+
     .event-line {
+
       width:
         60px;
 
@@ -1086,9 +1506,12 @@
 
       background:
         var(--gold);
+
     }
 
+
     .event-info {
+
       display:
         grid;
 
@@ -1103,6 +1526,7 @@
 
       color:
         var(--dusty-dark);
+
     }
 
 
@@ -1111,6 +1535,7 @@
     ========================================================== */
 
     .gallery {
+
       columns:
         2;
 
@@ -1119,9 +1544,12 @@
 
       margin-top:
         50px;
+
     }
 
+
     .gallery-item {
+
       position:
         relative;
 
@@ -1136,9 +1564,12 @@
 
       cursor:
         pointer;
+
     }
 
+
     .gallery-item img {
+
       width:
         100%;
 
@@ -1146,11 +1577,15 @@
         transform
         0.7s
         ease;
+
     }
 
+
     .gallery-item:hover img {
+
       transform:
         scale(1.08);
+
     }
 
 
@@ -1159,6 +1594,7 @@
     ========================================================== */
 
     #lightbox {
+
       position:
         fixed;
 
@@ -1187,14 +1623,20 @@
           0,
           0.93
         );
+
     }
+
 
     #lightbox.active {
+
       display:
         flex;
+
     }
 
+
     #lightbox img {
+
       max-width:
         95vw;
 
@@ -1206,9 +1648,12 @@
 
       border-radius:
         18px;
+
     }
 
+
     .close-lightbox {
+
       position:
         absolute;
 
@@ -1243,6 +1688,7 @@
 
       font-size:
         25px;
+
     }
 
 
@@ -1251,6 +1697,7 @@
     ========================================================== */
 
     .timeline {
+
       position:
         relative;
 
@@ -1261,9 +1708,12 @@
         60px
         auto
         0;
+
     }
 
+
     .timeline::before {
+
       content:
         "";
 
@@ -1284,9 +1734,12 @@
 
       background:
         var(--gold);
+
     }
 
+
     .timeline-item {
+
       position:
         relative;
 
@@ -1302,9 +1755,12 @@
 
       margin-bottom:
         55px;
+
     }
 
+
     .timeline-dot {
+
       position:
         relative;
 
@@ -1334,9 +1790,12 @@
 
       background:
         var(--gold);
+
     }
 
+
     .timeline-card {
+
       padding:
         25px;
 
@@ -1363,9 +1822,12 @@
 
       box-shadow:
         var(--shadow-soft);
+
     }
 
+
     .timeline-number {
+
       font-size:
         11px;
 
@@ -1374,9 +1836,12 @@
 
       color:
         var(--gold);
+
     }
 
+
     .timeline-title {
+
       margin-top:
         8px;
 
@@ -1386,9 +1851,12 @@
 
       font-size:
         25px;
+
     }
 
+
     .timeline-description {
+
       margin-top:
         12px;
 
@@ -1400,6 +1868,7 @@
 
       color:
         var(--dusty-dark);
+
     }
 
 
@@ -1408,6 +1877,7 @@
     ========================================================== */
 
     .rsvp-wrapper {
+
       max-width:
         700px;
 
@@ -1415,9 +1885,12 @@
         55px
         auto
         0;
+
     }
 
+
     .rsvp-form {
+
       display:
         grid;
 
@@ -1453,25 +1926,34 @@
 
       backdrop-filter:
         blur(15px);
+
     }
 
+
     .form-group {
+
       display:
         grid;
 
       gap:
         8px;
+
     }
 
+
     .form-label {
+
       font-size:
         12px;
 
       font-weight:
         500;
+
     }
 
+
     .form-control {
+
       width:
         100%;
 
@@ -1509,9 +1991,12 @@
       transition:
         0.3s
         ease;
+
     }
 
+
     .form-control:focus {
+
       border-color:
         var(--gold);
 
@@ -1526,25 +2011,34 @@
           91,
           0.08
         );
+
     }
 
+
     textarea.form-control {
+
       resize:
         vertical;
 
       min-height:
         130px;
+
     }
 
+
     .submit-button {
+
       border:
         none;
 
       width:
         100%;
+
     }
 
+
     .rsvp-status {
+
       display:
         none;
 
@@ -1559,27 +2053,37 @@
 
       text-align:
         center;
+
     }
+
 
     .rsvp-status.show {
+
       display:
         block;
+
     }
 
+
     .rsvp-status.success {
+
       color:
         #286044;
 
       background:
         #e9f6ee;
+
     }
 
+
     .rsvp-status.error {
+
       color:
         #7c3030;
 
       background:
         #f9e9e9;
+
     }
 
 
@@ -1588,11 +2092,15 @@
     ========================================================== */
 
     .guestbook {
+
       margin-top:
         60px;
+
     }
 
+
     .guestbook-title {
+
       text-align:
         center;
 
@@ -1602,9 +2110,12 @@
 
       font-size:
         25px;
+
     }
 
+
     .guestbook-list {
+
       display:
         grid;
 
@@ -1613,9 +2124,12 @@
 
       margin-top:
         25px;
+
     }
 
+
     .guest-message {
+
       padding:
         20px;
 
@@ -1639,9 +2153,12 @@
           91,
           0.15
         );
+
     }
 
+
     .guest-header {
+
       display:
         flex;
 
@@ -1653,9 +2170,12 @@
 
       gap:
         10px;
+
     }
 
+
     .guest-name {
+
       font-family:
         "Playfair Display",
         serif;
@@ -1665,9 +2185,12 @@
 
       font-weight:
         600;
+
     }
 
+
     .guest-attendance {
+
       padding:
         5px
         10px;
@@ -1688,9 +2211,12 @@
           91,
           0.1
         );
+
     }
 
+
     .guest-message-text {
+
       margin-top:
         12px;
 
@@ -1702,14 +2228,17 @@
 
       color:
         var(--dusty-dark);
+
     }
 
 
     /* =========================================================
        WEDDING GIFT
+       DEFAULT HIDDEN
     ========================================================== */
 
     .gift-grid {
+
       display:
         grid;
 
@@ -1720,12 +2249,107 @@
         700px;
 
       margin:
-        50px
+        35px
         auto
         0;
+
+      opacity:
+        0;
+
+      max-height:
+        0;
+
+      overflow:
+        hidden;
+
+      transform:
+        translateY(30px);
+
+      transition:
+
+        opacity
+        0.7s
+        ease,
+
+        max-height
+        1s
+        ease,
+
+        transform
+        0.7s
+        ease;
+
     }
 
+
+    .gift-grid.show {
+
+      opacity:
+        1;
+
+      max-height:
+        1000px;
+
+      transform:
+        translateY(0);
+
+    }
+
+
+    .gift-intro {
+
+      max-width:
+        600px;
+
+      margin:
+        20px
+        auto
+        0;
+
+      text-align:
+        center;
+
+      font-size:
+        13px;
+
+      line-height:
+        1.9;
+
+    }
+
+
+    .gift-button-wrapper {
+
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      margin-top:
+        30px;
+
+    }
+
+
+    .gift-open-button {
+
+      min-width:
+        210px;
+
+    }
+
+
+    .gift-open-button.opened {
+
+      background:
+        var(--dusty-dark);
+
+    }
+
+
     .bank-card {
+
       padding:
         28px;
 
@@ -1737,7 +2361,7 @@
           255,
           255,
           255,
-          0.7
+          0.82
         );
 
       border:
@@ -1752,9 +2376,44 @@
 
       box-shadow:
         var(--shadow-soft);
+
+      transform:
+        translateY(20px);
+
+      opacity:
+        0;
+
+      transition:
+        all
+        0.7s
+        ease;
+
     }
 
+
+    .gift-grid.show
+    .bank-card {
+
+      transform:
+        translateY(0);
+
+      opacity:
+        1;
+
+    }
+
+
+    .gift-grid.show
+    .bank-card:nth-child(2) {
+
+      transition-delay:
+        0.15s;
+
+    }
+
+
     .bank-top {
+
       display:
         flex;
 
@@ -1763,9 +2422,12 @@
 
       justify-content:
         space-between;
+
     }
 
+
     .bank-logo {
+
       width:
         100px;
 
@@ -1774,9 +2436,12 @@
 
       object-fit:
         contain;
+
     }
 
+
     .bank-label {
+
       margin-top:
         25px;
 
@@ -1788,9 +2453,12 @@
 
       color:
         var(--dusty-dark);
+
     }
 
+
     .bank-number {
+
       margin-top:
         7px;
 
@@ -1803,9 +2471,12 @@
 
       letter-spacing:
         0.08em;
+
     }
 
+
     .bank-owner {
+
       margin-top:
         5px;
 
@@ -1814,9 +2485,12 @@
 
       color:
         var(--dusty-dark);
+
     }
 
+
     .copy-button {
+
       width:
         100%;
 
@@ -1848,14 +2522,18 @@
       transition:
         0.3s
         ease;
+
     }
 
+
     .copy-button:hover {
+
       color:
         white;
 
       background:
         var(--gold);
+
     }
 
 
@@ -1864,6 +2542,7 @@
     ========================================================== */
 
     .closing {
+
       display:
         flex;
 
@@ -1875,9 +2554,12 @@
 
       text-align:
         center;
+
     }
 
+
     .closing-text {
+
       max-width:
         650px;
 
@@ -1894,9 +2576,12 @@
 
       line-height:
         2;
+
     }
 
+
     .closing-names {
+
       font-family:
         "Great Vibes",
         cursive;
@@ -1910,6 +2595,7 @@
 
       color:
         var(--dusty-dark);
+
     }
 
 
@@ -1918,6 +2604,7 @@
     ========================================================== */
 
     #musicButton {
+
       position:
         fixed;
 
@@ -1978,26 +2665,35 @@
       transition:
         0.3s
         ease;
+
     }
 
+
     #musicButton.playing {
+
       animation:
         musicSpin
         4s
         linear
         infinite;
+
     }
+
 
     @keyframes musicSpin {
 
       from {
+
         transform:
           rotate(0deg);
+
       }
 
       to {
+
         transform:
           rotate(360deg);
+
       }
 
     }
@@ -2008,6 +2704,7 @@
     ========================================================== */
 
     .reveal {
+
       opacity:
         0;
 
@@ -2015,6 +2712,7 @@
         translateY(40px);
 
       transition:
+
         opacity
         0.9s
         ease,
@@ -2022,14 +2720,18 @@
         transform
         0.9s
         ease;
+
     }
 
+
     .reveal.active {
+
       opacity:
         1;
 
       transform:
         translateY(0);
+
     }
 
 
@@ -2038,6 +2740,7 @@
     ========================================================== */
 
     #pageLoader {
+
       position:
         fixed;
 
@@ -2063,22 +2766,31 @@
         opacity
         0.7s
         ease;
+
     }
 
+
     #pageLoader.hide {
+
       opacity:
         0;
 
       pointer-events:
         none;
+
     }
+
 
     .loader-content {
+
       text-align:
         center;
+
     }
 
+
     .loader-names {
+
       font-family:
         "Great Vibes",
         cursive;
@@ -2088,9 +2800,12 @@
 
       color:
         var(--dusty-dark);
+
     }
 
+
     .loader-line {
+
       width:
         100px;
 
@@ -2109,19 +2824,25 @@
         1.5s
         ease
         infinite;
+
     }
+
 
     @keyframes loaderLine {
 
       0%,
       100% {
+
         transform:
           scaleX(0.3);
+
       }
 
       50% {
+
         transform:
           scaleX(1);
+
       }
 
     }
@@ -2137,112 +2858,250 @@
     ) {
 
       .section {
+
         padding:
           130px
           40px;
+
       }
+
 
       .couple-grid {
+
         grid-template-columns:
           repeat(
             2,
             1fr
           );
+
       }
+
 
       .event-grid {
+
         grid-template-columns:
           repeat(
             2,
             1fr
           );
+
       }
 
+
       .gallery {
+
         columns:
           3;
 
         column-gap:
           18px;
+
       }
+
 
       .gallery-item {
+
         margin-bottom:
           18px;
+
       }
+
 
       .timeline::before {
+
         left:
           50%;
+
       }
 
+
       .timeline-item {
+
         grid-template-columns:
           1fr
           38px
           1fr;
+
       }
+
 
       .timeline-item:nth-child(
         odd
       ) .timeline-card {
+
         grid-column:
           1;
 
         grid-row:
           1;
+
       }
+
 
       .timeline-item:nth-child(
         odd
       ) .timeline-dot {
+
         grid-column:
           2;
 
         grid-row:
           1;
+
       }
+
 
       .timeline-item:nth-child(
         even
       ) .timeline-dot {
+
         grid-column:
           2;
 
         grid-row:
           1;
+
       }
+
 
       .timeline-item:nth-child(
         even
       ) .timeline-card {
+
         grid-column:
           3;
 
         grid-row:
           1;
+
       }
+
 
       .floral.tl,
       .floral.tr {
+
         width:
           300px;
+
       }
+
 
       .floral.bl,
       .floral.br {
+
         width:
           340px;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE COVER
+    ========================================================== */
+
+    @media (
+      max-width:
+      480px
+    ) {
+
+      .opening-photo {
+
+        width:
+          190px;
+
+        height:
+          270px;
+
+      }
+
+
+      .opening-names {
+
+        font-size:
+          70px;
+
+      }
+
+
+      .opening-content {
+
+        padding:
+          20px;
+
+      }
+
+
+      .countdown-grid {
+
+        gap:
+          5px;
+
+      }
+
+
+      .count-card {
+
+        padding:
+          15px
+          4px;
+
+      }
+
+
+      .count-label {
+
+        font-size:
+          8px;
+
+      }
+
+
+      .bank-number {
+
+        font-size:
+          21px;
+
       }
 
     }
 
   </style>
-</head>
 
+</head>
 
 <body class="lock-scroll">
 
+  <!-- =========================================================
+       VIDEO BACKGROUND
+       GANTI FILE VIDEO DI SINI
+       videos/wedding-background.mp4
+  ========================================================== -->
+
+  <div id="videoBackground">
+
+```
+<video
+  id="backgroundVideo"
+  muted
+  loop
+  playsinline
+  preload="metadata"
+>
+
+  <source
+    src="videos/wedding-background.mp4"
+    type="video/mp4"
+  >
+
+</video>
+
+
+<div class="video-overlay"></div>
+```
+
+  </div>
 
   <!-- =========================================================
        PAGE LOADER
@@ -2250,113 +3109,121 @@
 
   <div id="pageLoader">
 
-    <div class="loader-content">
+```
+<div class="loader-content">
 
-      <div class="loader-names">
-        Yustifan & Leta
-      </div>
+  <div class="loader-names">
+    Yustifan & Leta
+  </div>
 
-      <div class="loader-line"></div>
+  <div class="loader-line"></div>
 
-      <p>
-        THE WEDDING
-      </p>
+  <p>
+    THE WEDDING
+  </p>
 
-    </div>
+</div>
+```
 
   </div>
 
-
   <!-- =========================================================
        OPENING SCREEN
+       FULL SCREEN FOTO COVER
   ========================================================== -->
 
   <div id="openingScreen">
 
-    <img
-      class="floral tl"
-      src="decorations/floral-top-left.png"
-      alt=""
-    >
+```
+<img
+  class="floral tl"
+  src="decorations/floral-top-left.png"
+  alt=""
+>
+
+
+<img
+  class="floral tr"
+  src="decorations/floral-top-right.png"
+  alt=""
+>
+
+
+<img
+  class="floral bl"
+  src="decorations/floral-bottom-left.png"
+  alt=""
+>
+
+
+<img
+  class="floral br"
+  src="decorations/floral-bottom-right.png"
+  alt=""
+>
+
+
+<div class="opening-content">
+
+
+  <div class="opening-label">
+    THE WEDDING OF
+  </div>
+
+
+  <h1 class="opening-names">
+
+    Yustifan
+
+    <span>
+      &
+    </span>
+
+    Leta
+
+  </h1>
+
+
+  <div class="opening-photo">
 
     <img
-      class="floral tr"
-      src="decorations/floral-top-right.png"
-      alt=""
+      src="images/cover.jpg"
+      alt="Yustifan dan Leta"
     >
 
-    <img
-      class="floral bl"
-      src="decorations/floral-bottom-left.png"
-      alt=""
+  </div>
+
+
+  <div class="guest-text">
+
+    Kepada Yth.
+
+    <div
+      id="guestName"
+      class="guest-name"
     >
-
-    <img
-      class="floral br"
-      src="decorations/floral-bottom-right.png"
-      alt=""
-    >
-
-
-    <div class="opening-content">
-
-      <div class="opening-label">
-        THE WEDDING OF
-      </div>
-
-
-      <h1 class="opening-names">
-
-        Yustifan
-
-        <span>
-          &
-        </span>
-
-        Leta
-
-      </h1>
-
-
-      <div class="opening-photo">
-
-        <img
-          src="images/cover.jpg"
-          alt="Yustifan dan Leta"
-        >
-
-      </div>
-
-
-      <div class="guest-text">
-
-        Kepada Yth.
-
-        <div
-          id="guestName"
-          class="guest-name"
-        >
-          Tamu Undangan
-        </div>
-
-      </div>
-
-
-      <button
-        id="openInvitation"
-        class="btn btn-gold open-button"
-      >
-
-        ♡
-
-        Buka Undangan
-
-      </button>
-
+      Tamu Undangan
     </div>
 
   </div>
 
+
+  <button
+    id="openInvitation"
+    class="btn btn-gold open-button"
+  >
+
+    ♡
+
+    Buka Undangan
+
+  </button>
+
+
+</div>
+```
+
+  </div>
 
   <!-- =========================================================
        MAIN CONTENT
@@ -2364,1125 +3231,1307 @@
 
   <main id="mainContent">
 
+```
+<!-- =======================================================
+     HERO
+======================================================== -->
 
-    <!-- =======================================================
-         HERO
-    ======================================================== -->
-
-    <section class="section marble hero">
-
-      <img
-        class="floral tl"
-        src="decorations/floral-top-left.png"
-        alt=""
-      >
-
-      <img
-        class="floral tr"
-        src="decorations/floral-top-right.png"
-        alt=""
-      >
-
-      <img
-        class="floral bl"
-        src="decorations/floral-bottom-left.png"
-        alt=""
-      >
-
-      <img
-        class="floral br"
-        src="decorations/floral-bottom-right.png"
-        alt=""
-      >
+<section class="section marble hero">
 
 
-      <div class="section-inner">
+  <img
+    class="floral tl"
+    src="decorations/floral-top-left.png"
+    alt=""
+  >
 
-        <div class="section-label reveal">
-          THE WEDDING OF
+
+  <img
+    class="floral tr"
+    src="decorations/floral-top-right.png"
+    alt=""
+  >
+
+
+  <img
+    class="floral bl"
+    src="decorations/floral-bottom-left.png"
+    alt=""
+  >
+
+
+  <img
+    class="floral br"
+    src="decorations/floral-bottom-right.png"
+    alt=""
+  >
+
+
+  <div class="section-inner">
+
+
+    <div class="section-label reveal">
+      THE WEDDING OF
+    </div>
+
+
+    <h1 class="hero-names reveal">
+
+      Yustifan
+
+      <span>
+        &
+      </span>
+
+      Leta
+
+    </h1>
+
+
+    <div class="gold-line reveal"></div>
+
+
+    <div class="hero-date reveal">
+      18 • 08 • 2026
+    </div>
+
+
+    <a
+      href="#event"
+      class="btn btn-outline reveal"
+      style="margin-top:30px;"
+    >
+
+      ♡
+
+      Save The Date
+
+    </a>
+
+
+    <img
+      src="decorations/peacock.png"
+      class="peacock reveal"
+      alt="Peacock Decoration"
+    >
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     COUNTDOWN
+======================================================== -->
+
+<section class="section countdown-section">
+
+
+  <div class="section-inner">
+
+
+    <div
+      class="section-label"
+      style="color:white;"
+    >
+
+      COUNTING DOWN TO
+
+    </div>
+
+
+    <h2 class="section-title countdown-title">
+
+      Our Special Day
+
+    </h2>
+
+
+    <div class="countdown-grid">
+
+
+      <div class="count-card">
+
+        <div
+          id="days"
+          class="count-number"
+        >
+          00
+        </div>
+
+        <div class="count-label">
+          Hari
+        </div>
+
+      </div>
+
+
+      <div class="count-card">
+
+        <div
+          id="hours"
+          class="count-number"
+        >
+          00
+        </div>
+
+        <div class="count-label">
+          Jam
+        </div>
+
+      </div>
+
+
+      <div class="count-card">
+
+        <div
+          id="minutes"
+          class="count-number"
+        >
+          00
+        </div>
+
+        <div class="count-label">
+          Menit
+        </div>
+
+      </div>
+
+
+      <div class="count-card">
+
+        <div
+          id="seconds"
+          class="count-number"
+        >
+          00
+        </div>
+
+        <div class="count-label">
+          Detik
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     COUPLE
+======================================================== -->
+
+<section class="section marble">
+
+
+  <img
+    class="floral tl"
+    src="decorations/floral-top-left.png"
+    alt=""
+  >
+
+
+  <img
+    class="floral tr"
+    src="decorations/floral-top-right.png"
+    alt=""
+  >
+
+
+  <div class="section-inner">
+
+
+    <div class="section-label reveal">
+      THE BRIDE & GROOM
+    </div>
+
+
+    <h2 class="section-title reveal">
+      Two Souls, One Love
+    </h2>
+
+
+    <div class="couple-grid">
+
+
+      <div class="person reveal">
+
+
+        <div class="person-photo">
+
+          <img
+            src="images/groom.jpg"
+            alt="Yustifan"
+          >
+
         </div>
 
 
-        <h1 class="hero-names reveal">
-
+        <h3 class="person-name">
           Yustifan
+        </h3>
 
-          <span>
-            &
-          </span>
 
+        <p class="person-parents">
+
+          Putra dari
+
+          <br>
+
+          Bapak Nama Ayah
+
+          &
+
+          Ibu Nama Ibu
+
+        </p>
+
+
+      </div>
+
+
+      <div class="person reveal">
+
+
+        <div class="person-photo">
+
+          <img
+            src="images/bride.jpg"
+            alt="Leta"
+          >
+
+        </div>
+
+
+        <h3 class="person-name">
           Leta
-
-        </h1>
-
-
-        <div class="gold-line reveal"></div>
+        </h3>
 
 
-        <div class="hero-date reveal">
-          18 • 08 • 2026
+        <p class="person-parents">
+
+          Putri dari
+
+          <br>
+
+          Bapak Nama Ayah
+
+          &
+
+          Ibu Nama Ibu
+
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     QUOTE
+======================================================== -->
+
+<section class="section quote-section">
+
+
+  <div class="section-inner">
+
+
+    <div class="quote-mark reveal">
+      “
+    </div>
+
+
+    <p class="quote-text reveal">
+
+      Dan di antara tanda-tanda kekuasaan-Nya ialah Dia
+      menciptakan untukmu pasangan-pasangan dari jenismu
+      sendiri, supaya kamu merasa tenteram kepadanya,
+      dan dijadikan-Nya di antaramu rasa kasih dan sayang.
+
+    </p>
+
+
+    <div class="gold-line"></div>
+
+
+    <div class="quote-source">
+      QS. Ar-Rum: 21
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     EVENT
+======================================================== -->
+
+<section
+  id="event"
+  class="section marble"
+>
+
+
+  <img
+    class="floral tl"
+    src="decorations/floral-top-left.png"
+    alt=""
+  >
+
+
+  <img
+    class="floral tr"
+    src="decorations/floral-top-right.png"
+    alt=""
+  >
+
+
+  <div class="section-inner">
+
+
+    <div class="section-label reveal">
+      SAVE THE DATE
+    </div>
+
+
+    <h2 class="section-title reveal">
+      Wedding Events
+    </h2>
+
+
+    <div class="event-grid">
+
+
+      <div class="event-card reveal">
+
+
+        <h3 class="event-title">
+          Akad Nikah
+        </h3>
+
+
+        <div class="event-line"></div>
+
+
+        <div class="event-info">
+
+
+          <div>
+            📅 Selasa, 18 Agustus 2026
+          </div>
+
+
+          <div>
+            🕐 08.00 WIB
+          </div>
+
+
+          <div>
+            📍 Nama Gedung / Rumah
+          </div>
+
+
+          <div>
+            Alamat lengkap lokasi akad nikah
+          </div>
+
+
         </div>
 
 
         <a
-          href="#event"
-          class="btn btn-outline reveal"
-          style="margin-top:30px;"
+          href="https://www.google.com/maps/search/?api=1&query=Jakarta"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-gold"
+          style="margin-top:25px;"
         >
-          ♡
-          Save The Date
+
+          📍
+
+          Lihat Lokasi
+
         </a>
 
 
+      </div>
+
+
+      <div class="event-card reveal">
+
+
+        <h3 class="event-title">
+          Resepsi
+        </h3>
+
+
+        <div class="event-line"></div>
+
+
+        <div class="event-info">
+
+
+          <div>
+            📅 Selasa, 18 Agustus 2026
+          </div>
+
+
+          <div>
+            🕐 11.00 - 14.00 WIB
+          </div>
+
+
+          <div>
+            📍 Nama Gedung / Rumah
+          </div>
+
+
+          <div>
+            Alamat lengkap lokasi resepsi
+          </div>
+
+
+        </div>
+
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Jakarta"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-gold"
+          style="margin-top:25px;"
+        >
+
+          📍
+
+          Lihat Lokasi
+
+        </a>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     GALLERY
+======================================================== -->
+
+<section class="section quote-section">
+
+
+  <div class="section-inner">
+
+
+    <div class="section-label reveal">
+      OUR MOMENTS
+    </div>
+
+
+    <h2 class="section-title reveal">
+      Beautiful Memories
+    </h2>
+
+
+    <div class="gallery">
+
+
+      <div
+        class="gallery-item reveal"
+        data-image="images/gallery-01.jpg"
+      >
+
         <img
-          src="decorations/peacock.png"
-          class="peacock reveal"
-          alt="Peacock Decoration"
+          src="images/gallery-01.jpg"
+          alt="Wedding Photo 1"
+          loading="lazy"
         >
 
       </div>
 
-    </section>
 
-
-    <!-- =======================================================
-         COUNTDOWN
-    ======================================================== -->
-
-    <section class="section countdown-section">
-
-      <div class="section-inner">
-
-        <div class="section-label" style="color:white;">
-          COUNTING DOWN TO
-        </div>
-
-
-        <h2 class="section-title countdown-title">
-          Our Special Day
-        </h2>
-
-
-        <div class="countdown-grid">
-
-          <div class="count-card">
-            <div
-              id="days"
-              class="count-number"
-            >
-              00
-            </div>
-
-            <div class="count-label">
-              Hari
-            </div>
-          </div>
-
-
-          <div class="count-card">
-            <div
-              id="hours"
-              class="count-number"
-            >
-              00
-            </div>
-
-            <div class="count-label">
-              Jam
-            </div>
-          </div>
-
-
-          <div class="count-card">
-            <div
-              id="minutes"
-              class="count-number"
-            >
-              00
-            </div>
-
-            <div class="count-label">
-              Menit
-            </div>
-          </div>
-
-
-          <div class="count-card">
-            <div
-              id="seconds"
-              class="count-number"
-            >
-              00
-            </div>
-
-            <div class="count-label">
-              Detik
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         COUPLE
-    ======================================================== -->
-
-    <section class="section marble">
-
-      <img
-        class="floral tl"
-        src="decorations/floral-top-left.png"
-        alt=""
+      <div
+        class="gallery-item reveal"
+        data-image="images/gallery-02.jpg"
       >
 
-      <img
-        class="floral tr"
-        src="decorations/floral-top-right.png"
-        alt=""
+        <img
+          src="images/gallery-02.jpg"
+          alt="Wedding Photo 2"
+          loading="lazy"
+        >
+
+      </div>
+
+
+      <div
+        class="gallery-item reveal"
+        data-image="images/gallery-03.jpg"
       >
 
-
-      <div class="section-inner">
-
-        <div class="section-label reveal">
-          THE BRIDE & GROOM
-        </div>
-
-        <h2 class="section-title reveal">
-          Two Souls, One Love
-        </h2>
-
-
-        <div class="couple-grid">
-
-
-          <div class="person reveal">
-
-            <div class="person-photo">
-
-              <img
-                src="images/groom.jpg"
-                alt="Yustifan"
-              >
-
-            </div>
-
-
-            <h3 class="person-name">
-              Yustifan
-            </h3>
-
-
-            <p class="person-parents">
-
-              Putra dari
-
-              <br>
-
-              Bapak Nama Ayah
-
-              &
-
-              Ibu Nama Ibu
-
-            </p>
-
-          </div>
-
-
-          <div class="person reveal">
-
-            <div class="person-photo">
-
-              <img
-                src="images/bride.jpg"
-                alt="Leta"
-              >
-
-            </div>
-
-
-            <h3 class="person-name">
-              Leta
-            </h3>
-
-
-            <p class="person-parents">
-
-              Putri dari
-
-              <br>
-
-              Bapak Nama Ayah
-
-              &
-
-              Ibu Nama Ibu
-
-            </p>
-
-          </div>
-
-
-        </div>
+        <img
+          src="images/gallery-03.jpg"
+          alt="Wedding Photo 3"
+          loading="lazy"
+        >
 
       </div>
 
-    </section>
 
+      <div
+        class="gallery-item reveal"
+        data-image="images/gallery-04.jpg"
+      >
 
-    <!-- =======================================================
-         QUOTE
-    ======================================================== -->
-
-    <section class="section quote-section">
-
-      <div class="section-inner">
-
-        <div class="quote-mark reveal">
-          “
-        </div>
-
-
-        <p class="quote-text reveal">
-
-          Dan di antara tanda-tanda kekuasaan-Nya ialah Dia
-          menciptakan untukmu pasangan-pasangan dari jenismu
-          sendiri, supaya kamu merasa tenteram kepadanya,
-          dan dijadikan-Nya di antaramu rasa kasih dan sayang.
-
-        </p>
-
-
-        <div class="gold-line"></div>
-
-
-        <div class="quote-source">
-          QS. Ar-Rum: 21
-        </div>
+        <img
+          src="images/gallery-04.jpg"
+          alt="Wedding Photo 4"
+          loading="lazy"
+        >
 
       </div>
 
-    </section>
+
+      <div
+        class="gallery-item reveal"
+        data-image="images/gallery-05.jpg"
+      >
+
+        <img
+          src="images/gallery-05.jpg"
+          alt="Wedding Photo 5"
+          loading="lazy"
+        >
+
+      </div>
 
 
-    <!-- =======================================================
-         EVENT
-    ======================================================== -->
+      <div
+        class="gallery-item reveal"
+        data-image="images/gallery-06.jpg"
+      >
 
-    <section
-      id="event"
-      class="section marble"
+        <img
+          src="images/gallery-06.jpg"
+          alt="Wedding Photo 6"
+          loading="lazy"
+        >
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     LOVE STORY
+======================================================== -->
+
+<section class="section marble">
+
+
+  <div class="section-inner">
+
+
+    <div class="section-label reveal">
+      OUR JOURNEY
+    </div>
+
+
+    <h2 class="section-title reveal">
+      Love Story
+    </h2>
+
+
+    <div class="timeline">
+
+
+      <div class="timeline-item reveal">
+
+
+        <div class="timeline-dot">
+          ♡
+        </div>
+
+
+        <div class="timeline-card">
+
+
+          <div class="timeline-number">
+            01
+          </div>
+
+
+          <h3 class="timeline-title">
+            Perkenalan
+          </h3>
+
+
+          <p class="timeline-description">
+
+            Berawal dari sebuah pertemuan sederhana
+            yang kemudian membawa kami pada perjalanan
+            penuh cerita.
+
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+      <div class="timeline-item reveal">
+
+
+        <div class="timeline-dot">
+          ♡
+        </div>
+
+
+        <div class="timeline-card">
+
+
+          <div class="timeline-number">
+            02
+          </div>
+
+
+          <h3 class="timeline-title">
+            Lamaran
+          </h3>
+
+
+          <p class="timeline-description">
+
+            Dengan penuh keyakinan dan doa,
+            kami memutuskan untuk melangkah bersama
+            menuju kehidupan baru.
+
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+      <div class="timeline-item reveal">
+
+
+        <div class="timeline-dot">
+          ♡
+        </div>
+
+
+        <div class="timeline-card">
+
+
+          <div class="timeline-number">
+            03
+          </div>
+
+
+          <h3 class="timeline-title">
+            Menikah
+          </h3>
+
+
+          <p class="timeline-description">
+
+            Dengan memohon ridho Allah SWT,
+            kami mengikat janji untuk tumbuh,
+            mencintai, dan berjalan bersama selamanya.
+
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     RSVP
+======================================================== -->
+
+<section class="section quote-section">
+
+
+  <div class="section-inner">
+
+
+    <div class="section-label reveal">
+      RSVP & WISHES
+    </div>
+
+
+    <h2 class="section-title reveal">
+      Your Presence
+    </h2>
+
+
+    <p
+      class="reveal"
+      style="
+        max-width:600px;
+        margin:20px auto;
+        text-align:center;
+        font-size:13px;
+        line-height:1.9;
+      "
     >
 
-      <img
-        class="floral tl"
-        src="decorations/floral-top-left.png"
-        alt=""
+      Konfirmasikan kehadiran dan tinggalkan
+      ucapan terbaik untuk kami.
+
+    </p>
+
+
+    <div class="rsvp-wrapper">
+
+
+      <form
+        id="rsvpForm"
+        class="rsvp-form reveal"
       >
 
-      <img
-        class="floral tr"
-        src="decorations/floral-top-right.png"
-        alt=""
-      >
+
+        <div class="form-group">
 
 
-      <div class="section-inner">
-
-        <div class="section-label reveal">
-          SAVE THE DATE
-        </div>
-
-        <h2 class="section-title reveal">
-          Wedding Events
-        </h2>
+          <label class="form-label">
+            Nama
+          </label>
 
 
-        <div class="event-grid">
-
-
-          <!-- AKAD -->
-
-          <div class="event-card reveal">
-
-            <h3 class="event-title">
-              Akad Nikah
-            </h3>
-
-            <div class="event-line"></div>
-
-
-            <div class="event-info">
-
-              <div>
-                📅 Selasa, 18 Agustus 2026
-              </div>
-
-              <div>
-                🕐 08.00 WIB
-              </div>
-
-              <div>
-                📍 Nama Gedung / Rumah
-              </div>
-
-              <div>
-                Alamat lengkap lokasi akad nikah
-              </div>
-
-            </div>
-
-
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Jakarta"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-gold"
-              style="margin-top:25px;"
-            >
-              📍 Lihat Lokasi
-            </a>
-
-          </div>
-
-
-          <!-- RESEPSI -->
-
-          <div class="event-card reveal">
-
-            <h3 class="event-title">
-              Resepsi
-            </h3>
-
-            <div class="event-line"></div>
-
-
-            <div class="event-info">
-
-              <div>
-                📅 Selasa, 18 Agustus 2026
-              </div>
-
-              <div>
-                🕐 11.00 - 14.00 WIB
-              </div>
-
-              <div>
-                📍 Nama Gedung / Rumah
-              </div>
-
-              <div>
-                Alamat lengkap lokasi resepsi
-              </div>
-
-            </div>
-
-
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Jakarta"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-gold"
-              style="margin-top:25px;"
-            >
-              📍 Lihat Lokasi
-            </a>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         GALLERY
-    ======================================================== -->
-
-    <section class="section quote-section">
-
-      <div class="section-inner">
-
-        <div class="section-label reveal">
-          OUR MOMENTS
-        </div>
-
-        <h2 class="section-title reveal">
-          Beautiful Memories
-        </h2>
-
-
-        <div class="gallery">
-
-
-          <div
-            class="gallery-item reveal"
-            data-image="images/gallery-01.jpg"
+          <input
+            id="rsvpName"
+            class="form-control"
+            type="text"
+            placeholder="Masukkan nama Anda"
+            required
           >
-            <img
-              src="images/gallery-01.jpg"
-              alt="Wedding Photo 1"
-              loading="lazy"
-            >
-          </div>
-
-
-          <div
-            class="gallery-item reveal"
-            data-image="images/gallery-02.jpg"
-          >
-            <img
-              src="images/gallery-02.jpg"
-              alt="Wedding Photo 2"
-              loading="lazy"
-            >
-          </div>
-
-
-          <div
-            class="gallery-item reveal"
-            data-image="images/gallery-03.jpg"
-          >
-            <img
-              src="images/gallery-03.jpg"
-              alt="Wedding Photo 3"
-              loading="lazy"
-            >
-          </div>
-
-
-          <div
-            class="gallery-item reveal"
-            data-image="images/gallery-04.jpg"
-          >
-            <img
-              src="images/gallery-04.jpg"
-              alt="Wedding Photo 4"
-              loading="lazy"
-            >
-          </div>
-
-
-          <div
-            class="gallery-item reveal"
-            data-image="images/gallery-05.jpg"
-          >
-            <img
-              src="images/gallery-05.jpg"
-              alt="Wedding Photo 5"
-              loading="lazy"
-            >
-          </div>
-
-
-          <div
-            class="gallery-item reveal"
-            data-image="images/gallery-06.jpg"
-          >
-            <img
-              src="images/gallery-06.jpg"
-              alt="Wedding Photo 6"
-              loading="lazy"
-            >
-          </div>
 
 
         </div>
 
-      </div>
 
-    </section>
-
-
-    <!-- =======================================================
-         LOVE STORY
-    ======================================================== -->
-
-    <section class="section marble">
-
-      <div class="section-inner">
-
-        <div class="section-label reveal">
-          OUR JOURNEY
-        </div>
-
-        <h2 class="section-title reveal">
-          Love Story
-        </h2>
+        <div class="form-group">
 
 
-        <div class="timeline">
+          <label class="form-label">
+            Jumlah Tamu
+          </label>
 
 
-          <div class="timeline-item reveal">
-
-            <div class="timeline-dot">
-              ♡
-            </div>
-
-
-            <div class="timeline-card">
-
-              <div class="timeline-number">
-                01
-              </div>
-
-              <h3 class="timeline-title">
-                Perkenalan
-              </h3>
-
-              <p class="timeline-description">
-
-                Berawal dari sebuah pertemuan sederhana
-                yang kemudian membawa kami pada perjalanan
-                penuh cerita.
-
-              </p>
-
-            </div>
-
-          </div>
+          <select
+            id="rsvpGuests"
+            class="form-control"
+          >
 
 
-          <div class="timeline-item reveal">
-
-            <div class="timeline-dot">
-              ♡
-            </div>
+            <option value="1">
+              1 Orang
+            </option>
 
 
-            <div class="timeline-card">
-
-              <div class="timeline-number">
-                02
-              </div>
-
-              <h3 class="timeline-title">
-                Lamaran
-              </h3>
-
-              <p class="timeline-description">
-
-                Dengan penuh keyakinan dan doa,
-                kami memutuskan untuk melangkah bersama
-                menuju kehidupan baru.
-
-              </p>
-
-            </div>
-
-          </div>
+            <option value="2">
+              2 Orang
+            </option>
 
 
-          <div class="timeline-item reveal">
-
-            <div class="timeline-dot">
-              ♡
-            </div>
+            <option value="3">
+              3 Orang
+            </option>
 
 
-            <div class="timeline-card">
+            <option value="4">
+              4 Orang
+            </option>
 
-              <div class="timeline-number">
-                03
-              </div>
 
-              <h3 class="timeline-title">
-                Menikah
-              </h3>
+            <option value="5">
+              5 Orang
+            </option>
 
-              <p class="timeline-description">
 
-                Dengan memohon ridho Allah SWT,
-                kami mengikat janji untuk tumbuh,
-                mencintai, dan berjalan bersama selamanya.
-
-              </p>
-
-            </div>
-
-          </div>
+          </select>
 
 
         </div>
 
-      </div>
 
-    </section>
+        <div class="form-group">
 
 
-    <!-- =======================================================
-         RSVP
-    ======================================================== -->
+          <label class="form-label">
+            Konfirmasi Kehadiran
+          </label>
 
-    <section class="section quote-section">
 
-      <div class="section-inner">
+          <select
+            id="rsvpAttendance"
+            class="form-control"
+          >
 
-        <div class="section-label reveal">
-          RSVP & WISHES
+
+            <option value="Hadir">
+              Hadir
+            </option>
+
+
+            <option value="Tidak Hadir">
+              Tidak Hadir
+            </option>
+
+
+            <option value="Masih Ragu">
+              Masih Ragu
+            </option>
+
+
+          </select>
+
+
         </div>
 
-        <h2 class="section-title reveal">
-          Your Presence
-        </h2>
+
+        <div class="form-group">
 
 
-        <p
-          class="reveal"
-          style="
-            max-width:600px;
-            margin:20px auto;
-            text-align:center;
-            font-size:13px;
-            line-height:1.9;
-          "
+          <label class="form-label">
+            Ucapan & Doa
+          </label>
+
+
+          <textarea
+            id="rsvpMessage"
+            class="form-control"
+            placeholder="Tuliskan ucapan dan doa..."
+            required
+          ></textarea>
+
+
+        </div>
+
+
+        <div
+          id="rsvpStatus"
+          class="rsvp-status"
+        ></div>
+
+
+        <button
+          class="btn btn-gold submit-button"
+          type="submit"
         >
 
-          Konfirmasikan kehadiran dan tinggalkan
-          ucapan terbaik untuk kami.
+          ✉
 
-        </p>
+          Kirim Ucapan
 
+        </button>
 
-        <div class="rsvp-wrapper">
 
+      </form>
 
-          <form
-            id="rsvpForm"
-            class="rsvp-form reveal"
-          >
 
+      <div class="guestbook">
 
-            <div class="form-group">
 
-              <label class="form-label">
-                Nama
-              </label>
+        <h3 class="guestbook-title">
+          Ucapan Terbaru
+        </h3>
 
-              <input
-                id="rsvpName"
-                class="form-control"
-                type="text"
-                placeholder="Masukkan nama Anda"
-                required
-              >
 
-            </div>
-
-
-            <div class="form-group">
-
-              <label class="form-label">
-                Jumlah Tamu
-              </label>
-
-              <select
-                id="rsvpGuests"
-                class="form-control"
-              >
-
-                <option value="1">
-                  1 Orang
-                </option>
-
-                <option value="2">
-                  2 Orang
-                </option>
-
-                <option value="3">
-                  3 Orang
-                </option>
-
-                <option value="4">
-                  4 Orang
-                </option>
-
-                <option value="5">
-                  5 Orang
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label class="form-label">
-                Konfirmasi Kehadiran
-              </label>
-
-              <select
-                id="rsvpAttendance"
-                class="form-control"
-              >
-
-                <option value="Hadir">
-                  Hadir
-                </option>
-
-                <option value="Tidak Hadir">
-                  Tidak Hadir
-                </option>
-
-                <option value="Masih Ragu">
-                  Masih Ragu
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label class="form-label">
-                Ucapan & Doa
-              </label>
-
-              <textarea
-                id="rsvpMessage"
-                class="form-control"
-                placeholder="Tuliskan ucapan dan doa..."
-                required
-              ></textarea>
-
-            </div>
-
-
-            <div
-              id="rsvpStatus"
-              class="rsvp-status"
-            ></div>
-
-
-            <button
-              class="btn btn-gold submit-button"
-              type="submit"
-            >
-
-              ✉
-
-              Kirim Ucapan
-
-            </button>
-
-
-          </form>
-
-
-          <!-- GUESTBOOK -->
-
-          <div class="guestbook">
-
-            <h3 class="guestbook-title">
-              Ucapan Terbaru
-            </h3>
-
-
-            <div
-              id="guestbookList"
-              class="guestbook-list"
-            >
-
-              <div
-                style="
-                  text-align:center;
-                  font-size:13px;
-                  color:#7893A1;
-                "
-              >
-                Memuat ucapan...
-              </div>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         WEDDING GIFT
-    ======================================================== -->
-
-    <section class="section marble">
-
-      <img
-        class="floral bl"
-        src="decorations/floral-bottom-left.png"
-        alt=""
-      >
-
-      <img
-        class="floral br"
-        src="decorations/floral-bottom-right.png"
-        alt=""
-      >
-
-
-      <div class="section-inner">
-
-        <div class="section-label reveal">
-          WEDDING GIFT
-        </div>
-
-        <h2 class="section-title reveal">
-          A Gift of Love
-        </h2>
-
-
-        <p
-          class="reveal"
-          style="
-            max-width:600px;
-            margin:20px auto;
-            text-align:center;
-            font-size:13px;
-            line-height:1.9;
-          "
+        <div
+          id="guestbookList"
+          class="guestbook-list"
         >
 
-          Doa restu Anda merupakan hadiah terindah bagi kami.
-          Namun apabila ingin memberikan tanda kasih,
-          dapat melalui rekening berikut.
 
-        </p>
-
-
-        <div class="gift-grid">
-
-
-          <!-- BCA -->
-
-          <div class="bank-card reveal">
-
-            <div class="bank-top">
-
-              <img
-                src="images/bca-logo.png"
-                class="bank-logo"
-                alt="BCA"
-              >
-
-              <span>
-                BANK
-              </span>
-
-            </div>
-
-
-            <div class="bank-label">
-              NOMOR REKENING
-            </div>
-
-
-            <div class="bank-number">
-              1234567890
-            </div>
-
-
-            <div class="bank-owner">
-              a.n. YUSTIFAN
-            </div>
-
-
-            <button
-              class="copy-button"
-              onclick="
-                copyAccount(
-                  '1234567890',
-                  this
-                )
-              "
-            >
-
-              Copy Nomor Rekening
-
-            </button>
-
-          </div>
-
-
-          <!-- BNI -->
-
-          <div class="bank-card reveal">
-
-            <div class="bank-top">
-
-              <img
-                src="images/bni-logo.png"
-                class="bank-logo"
-                alt="BNI"
-              >
-
-              <span>
-                BANK
-              </span>
-
-            </div>
-
-
-            <div class="bank-label">
-              NOMOR REKENING
-            </div>
-
-
-            <div class="bank-number">
-              0987654321
-            </div>
-
-
-            <div class="bank-owner">
-              a.n. LETA
-            </div>
-
-
-            <button
-              class="copy-button"
-              onclick="
-                copyAccount(
-                  '0987654321',
-                  this
-                )
-              "
-            >
-
-              Copy Nomor Rekening
-
-            </button>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         CLOSING
-    ======================================================== -->
-
-    <section class="section marble closing">
-
-      <img
-        class="floral tl"
-        src="decorations/floral-top-left.png"
-        alt=""
-      >
-
-      <img
-        class="floral tr"
-        src="decorations/floral-top-right.png"
-        alt=""
-      >
-
-      <img
-        class="floral bl"
-        src="decorations/floral-bottom-left.png"
-        alt=""
-      >
-
-      <img
-        class="floral br"
-        src="decorations/floral-bottom-right.png"
-        alt=""
-      >
-
-
-      <div class="section-inner">
-
-        <div class="section-label reveal">
-          THANK YOU
-        </div>
-
-
-        <p class="closing-text reveal">
-
-          Merupakan suatu kebahagiaan bagi kami apabila
-          Bapak/Ibu/Saudara/i berkenan hadir dan memberikan
-          doa restu di hari bahagia kami.
-
-        </p>
-
-
-        <div class="gold-line"></div>
-
-
-        <div class="closing-names reveal">
-
-          Yustifan
-
-          <span
+          <div
             style="
-              color:#B99A5B;
-              font-size:0.55em;
+              text-align:center;
+              font-size:13px;
+              color:#7893A1;
             "
           >
-            &
-          </span>
 
-          Leta
+            Memuat ucapan...
+
+          </div>
+
 
         </div>
 
 
-        <img
-          src="decorations/peacock.png"
-          class="peacock reveal"
-          alt="Peacock"
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     WEDDING GIFT
+     REKENING DISEMBUNYIKAN
+     MUNCUL SETELAH TOMBOL DIKLIK
+======================================================== -->
+
+<section class="section marble">
+
+
+  <img
+    class="floral bl"
+    src="decorations/floral-bottom-left.png"
+    alt=""
+  >
+
+
+  <img
+    class="floral br"
+    src="decorations/floral-bottom-right.png"
+    alt=""
+  >
+
+
+  <div class="section-inner">
+
+
+    <div class="section-label reveal">
+      WEDDING GIFT
+    </div>
+
+
+    <h2 class="section-title reveal">
+      A Gift of Love
+    </h2>
+
+
+    <p class="gift-intro reveal">
+
+      Doa restu Anda merupakan hadiah terindah bagi kami.
+      Namun apabila ingin memberikan tanda kasih,
+      dapat melalui rekening berikut.
+
+    </p>
+
+
+    <!-- TOMBOL PEMBUKA REKENING -->
+
+    <div class="gift-button-wrapper reveal">
+
+
+      <button
+        id="giftToggle"
+        class="btn btn-gold gift-open-button"
+        type="button"
+      >
+
+        ♡
+
+        Kirim Sesuatu
+
+      </button>
+
+
+    </div>
+
+
+    <!-- REKENING AKAN MUNCUL DI SINI -->
+
+    <div
+      id="giftGrid"
+      class="gift-grid"
+    >
+
+
+      <!-- BCA -->
+
+      <div class="bank-card">
+
+
+        <div class="bank-top">
+
+
+          <img
+            src="images/bca-logo.png"
+            class="bank-logo"
+            alt="BCA"
+          >
+
+
+          <span>
+            BANK
+          </span>
+
+
+        </div>
+
+
+        <div class="bank-label">
+          NOMOR REKENING
+        </div>
+
+
+        <div class="bank-number">
+          1234567890
+        </div>
+
+
+        <div class="bank-owner">
+          a.n. YUSTIFAN
+        </div>
+
+
+        <button
+          class="copy-button"
+          type="button"
+          onclick="
+            copyAccount(
+              '1234567890',
+              this
+            )
+          "
         >
+
+          Copy Nomor Rekening
+
+        </button>
+
 
       </div>
 
-    </section>
 
+      <!-- BNI -->
+
+      <div class="bank-card">
+
+
+        <div class="bank-top">
+
+
+          <img
+            src="images/bni-logo.png"
+            class="bank-logo"
+            alt="BNI"
+          >
+
+
+          <span>
+            BANK
+          </span>
+
+
+        </div>
+
+
+        <div class="bank-label">
+          NOMOR REKENING
+        </div>
+
+
+        <div class="bank-number">
+          0987654321
+        </div>
+
+
+        <div class="bank-owner">
+          a.n. LETA
+        </div>
+
+
+        <button
+          class="copy-button"
+          type="button"
+          onclick="
+            copyAccount(
+              '0987654321',
+              this
+            )
+          "
+        >
+
+          Copy Nomor Rekening
+
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     CLOSING
+======================================================== -->
+
+<section class="section marble closing">
+
+
+  <img
+    class="floral tl"
+    src="decorations/floral-top-left.png"
+    alt=""
+  >
+
+
+  <img
+    class="floral tr"
+    src="decorations/floral-top-right.png"
+    alt=""
+  >
+
+
+  <img
+    class="floral bl"
+    src="decorations/floral-bottom-left.png"
+    alt=""
+  >
+
+
+  <img
+    class="floral br"
+    src="decorations/floral-bottom-right.png"
+    alt=""
+  >
+
+
+  <div class="section-inner">
+
+
+    <div class="section-label reveal">
+      THANK YOU
+    </div>
+
+
+    <p class="closing-text reveal">
+
+      Merupakan suatu kebahagiaan bagi kami apabila
+      Bapak/Ibu/Saudara/i berkenan hadir dan memberikan
+      doa restu di hari bahagia kami.
+
+    </p>
+
+
+    <div class="gold-line"></div>
+
+
+    <div class="closing-names reveal">
+
+      Yustifan
+
+      <span
+        style="
+          color:#B99A5B;
+          font-size:0.55em;
+        "
+      >
+
+        &
+
+      </span>
+
+      Leta
+
+    </div>
+
+
+    <img
+      src="decorations/peacock.png"
+      class="peacock reveal"
+      alt="Peacock"
+    >
+
+
+  </div>
+
+</section>
+```
 
   </main>
-
 
   <!-- =========================================================
        MUSIC BUTTON
   ========================================================== -->
 
-  <button
-    id="musicButton"
-    title="Putar / Jeda Musik"
-  >
-    ♪
+<button
+id="musicButton"
+title="Putar / Jeda Musik"
+
+>
+
+```
+♪
+```
+
   </button>
 
+<audio
+id="weddingMusic"
+loop
+preload="auto"
 
-  <audio
-    id="weddingMusic"
-    loop
-    preload="auto"
-  >
+>
 
-    <source
-      src="music/wedding-song.mp3"
-      type="audio/mpeg"
-    >
+```
+<source
+  src="music/wedding-song.mp3"
+  type="audio/mpeg"
+>
+```
 
   </audio>
-
 
   <!-- =========================================================
        LIGHTBOX
@@ -3490,22 +4539,25 @@
 
   <div id="lightbox">
 
-    <button
-      class="close-lightbox"
-      id="closeLightbox"
-    >
-      ×
-    </button>
+```
+<button
+  class="close-lightbox"
+  id="closeLightbox"
+>
+
+  ×
+
+</button>
 
 
-    <img
-      id="lightboxImage"
-      src=""
-      alt="Preview"
-    >
+<img
+  id="lightboxImage"
+  src=""
+  alt="Preview"
+>
+```
 
   </div>
-
 
   <!-- =========================================================
        JAVASCRIPT
@@ -3513,16 +4565,19 @@
 
   <script>
 
+
     /* =========================================================
        CONFIGURATION
     ========================================================== */
 
     const CONFIG = {
 
+
       /* SUPABASE */
 
       SUPABASE_URL:
         "https://YOUR-PROJECT.supabase.co",
+
 
       SUPABASE_ANON_KEY:
         "YOUR_SUPABASE_ANON_KEY",
@@ -3533,6 +4588,7 @@
       weddingDate:
         "2026-08-18T08:00:00+07:00"
 
+
     };
 
 
@@ -3542,13 +4598,19 @@
 
     let supabaseClient = null;
 
+
     if (
+
       window.supabase &&
+
       CONFIG.SUPABASE_URL !==
         "https://YOUR-PROJECT.supabase.co" &&
+
       CONFIG.SUPABASE_ANON_KEY !==
         "YOUR_SUPABASE_ANON_KEY"
+
     ) {
+
 
       supabaseClient =
         window.supabase.createClient(
@@ -3558,6 +4620,7 @@
           CONFIG.SUPABASE_ANON_KEY
 
         );
+
 
     }
 
@@ -3570,8 +4633,10 @@
       "load",
       () => {
 
+
         setTimeout(
           () => {
+
 
             document
               .getElementById(
@@ -3581,9 +4646,11 @@
                 "hide"
               );
 
+
           },
           900
         );
+
 
       }
     );
@@ -3591,14 +4658,15 @@
 
     /* =========================================================
        GUEST NAME
-       URL:
-       ?to=Anang
+       CONTOH:
+       index.html?to=Anang
     ========================================================== */
 
     const params =
       new URLSearchParams(
         window.location.search
       );
+
 
     const guest =
       params.get(
@@ -3608,6 +4676,7 @@
 
     if (guest) {
 
+
       document
         .getElementById(
           "guestName"
@@ -3616,6 +4685,61 @@
           decodeURIComponent(
             guest
           );
+
+
+    }
+
+
+    /* =========================================================
+       ELEMENT VIDEO
+    ========================================================== */
+
+    const videoBackground =
+      document.getElementById(
+        "videoBackground"
+      );
+
+
+    const backgroundVideo =
+      document.getElementById(
+        "backgroundVideo"
+      );
+
+
+    /* =========================================================
+       AKTIFKAN VIDEO BACKGROUND
+    ========================================================== */
+
+    function activateVideoBackground() {
+
+
+      videoBackground
+        .classList
+        .add(
+          "active"
+        );
+
+
+      document.body
+        .classList
+        .add(
+          "video-mode"
+        );
+
+
+      backgroundVideo
+        .play()
+        .catch(
+          error => {
+
+            console.log(
+              "Background video menunggu izin browser.",
+              error
+            );
+
+          }
+        );
+
 
     }
 
@@ -3629,15 +4753,18 @@
         "openingScreen"
       );
 
+
     const openButton =
       document.getElementById(
         "openInvitation"
       );
 
+
     const music =
       document.getElementById(
         "weddingMusic"
       );
+
 
     const musicButton =
       document.getElementById(
@@ -3649,11 +4776,13 @@
       "click",
       async () => {
 
+
         openingScreen
           .classList
           .add(
             "opened"
           );
+
 
         document.body
           .classList
@@ -3663,16 +4792,21 @@
 
 
         /*
-          Browser modern hanya mengizinkan
-          autoplay setelah interaksi user.
+          AKTIFKAN VIDEO BACKGROUND
+        */
 
-          Karena tombol ini diklik user,
-          musik dapat dimulai.
+        activateVideoBackground();
+
+
+        /*
+          PLAY MUSIK
         */
 
         try {
 
+
           await music.play();
+
 
           musicButton
             .classList
@@ -3680,12 +4814,15 @@
               "playing"
             );
 
+
         } catch (error) {
+
 
           console.log(
             "Musik belum dapat dimainkan.",
             error
           );
+
 
         }
 
@@ -3693,13 +4830,62 @@
         setTimeout(
           () => {
 
+
             openingScreen.style.display =
               "none";
+
 
           },
           1000
         );
 
+
+      }
+    );
+
+
+    /* =========================================================
+       VIDEO PLAY SAAT USER SCROLL
+       SEBAGAI BACKUP AUTOPLAY
+    ========================================================== */
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+
+        if (
+          !videoBackground
+            .classList
+            .contains(
+              "active"
+            )
+        ) {
+
+          return;
+
+        }
+
+
+        if (
+          backgroundVideo.paused
+        ) {
+
+
+          backgroundVideo
+            .play()
+            .catch(
+              () => {}
+            );
+
+
+        }
+
+
+      },
+      {
+        passive:
+          true
       }
     );
 
@@ -3712,21 +4898,41 @@
       "click",
       async () => {
 
+
         if (
           music.paused
         ) {
 
-          await music.play();
 
-          musicButton
-            .classList
-            .add(
-              "playing"
+          try {
+
+
+            await music.play();
+
+
+            musicButton
+              .classList
+              .add(
+                "playing"
+              );
+
+
+          } catch (error) {
+
+
+            console.log(
+              error
             );
+
+
+          }
+
 
         } else {
 
+
           music.pause();
+
 
           musicButton
             .classList
@@ -3734,7 +4940,9 @@
               "playing"
             );
 
+
         }
+
 
       }
     );
@@ -3746,13 +4954,16 @@
 
     function updateCountdown() {
 
+
       const target =
         new Date(
           CONFIG.weddingDate
         ).getTime();
 
+
       const now =
         new Date().getTime();
+
 
       const distance =
         target - now;
@@ -3762,12 +4973,14 @@
         distance <= 0
       ) {
 
+
         document
           .getElementById(
             "days"
           )
           .textContent =
             "00";
+
 
         document
           .getElementById(
@@ -3776,12 +4989,14 @@
           .textContent =
             "00";
 
+
         document
           .getElementById(
             "minutes"
           )
           .textContent =
             "00";
+
 
         document
           .getElementById(
@@ -3790,7 +5005,9 @@
           .textContent =
             "00";
 
+
         return;
+
 
       }
 
@@ -3892,6 +5109,7 @@
             "0"
           );
 
+
     }
 
 
@@ -3921,14 +5139,17 @@
           entries
         ) => {
 
+
           entries.forEach(
             (
               entry
             ) => {
 
+
               if (
                 entry.isIntersecting
               ) {
+
 
                 entry.target
                   .classList
@@ -3936,16 +5157,21 @@
                     "active"
                   );
 
+
               }
+
 
             }
           );
 
+
         },
 
         {
+
           threshold:
             0.12
+
         }
 
       );
@@ -3956,9 +5182,11 @@
         element
       ) => {
 
+
         revealObserver.observe(
           element
         );
+
 
       }
     );
@@ -3973,10 +5201,12 @@
         "lightbox"
       );
 
+
     const lightboxImage =
       document.getElementById(
         "lightboxImage"
       );
+
 
     const closeLightbox =
       document.getElementById(
@@ -3993,15 +5223,19 @@
           item
         ) => {
 
+
           item.addEventListener(
             "click",
             () => {
 
+
               const image =
                 item.dataset.image;
 
+
               lightboxImage.src =
                 image;
+
 
               lightbox
                 .classList
@@ -4009,8 +5243,10 @@
                   "active"
                 );
 
+
             }
           );
+
 
         }
       );
@@ -4020,11 +5256,13 @@
       "click",
       () => {
 
+
         lightbox
           .classList
           .remove(
             "active"
           );
+
 
       }
     );
@@ -4036,10 +5274,12 @@
         event
       ) => {
 
+
         if (
           event.target ===
           lightbox
         ) {
+
 
           lightbox
             .classList
@@ -4047,7 +5287,89 @@
               "active"
             );
 
+
         }
+
+
+      }
+    );
+
+
+    /* =========================================================
+       WEDDING GIFT TOGGLE
+    ========================================================== */
+
+    const giftToggle =
+      document.getElementById(
+        "giftToggle"
+      );
+
+
+    const giftGrid =
+      document.getElementById(
+        "giftGrid"
+      );
+
+
+    let giftOpened =
+      false;
+
+
+    giftToggle.addEventListener(
+      "click",
+      () => {
+
+
+        giftOpened =
+          !giftOpened;
+
+
+        if (
+          giftOpened
+        ) {
+
+
+          giftGrid
+            .classList
+            .add(
+              "show"
+            );
+
+
+          giftToggle
+            .classList
+            .add(
+              "opened"
+            );
+
+
+          giftToggle.innerHTML =
+            "♡ Sembunyikan Gift";
+
+
+        } else {
+
+
+          giftGrid
+            .classList
+            .remove(
+              "show"
+            );
+
+
+          giftToggle
+            .classList
+            .remove(
+              "opened"
+            );
+
+
+          giftToggle.innerHTML =
+            "♡ Kirim Sesuatu";
+
+
+        }
+
 
       }
     );
@@ -4062,7 +5384,9 @@
       button
     ) {
 
+
       try {
+
 
         await navigator
           .clipboard
@@ -4082,8 +5406,10 @@
         setTimeout(
           () => {
 
+
             button.textContent =
               original;
+
 
           },
           2000
@@ -4094,12 +5420,15 @@
         error
       ) {
 
+
         alert(
           "Nomor rekening: " +
           number
         );
 
+
       }
+
 
     }
 
@@ -4113,6 +5442,7 @@
         "rsvpForm"
       );
 
+
     const rsvpStatus =
       document.getElementById(
         "rsvpStatus"
@@ -4124,6 +5454,7 @@
       async (
         event
       ) => {
+
 
         event.preventDefault();
 
@@ -4167,27 +5498,28 @@
           !message
         ) {
 
+
           showRSVPStatus(
             "Mohon isi nama dan ucapan.",
             "error"
           );
 
+
           return;
+
 
         }
 
 
         /*
-          Jika Supabase belum dikonfigurasi,
-          gunakan localStorage.
-
-          Ini berguna untuk testing
-          sebelum database online aktif.
+          LOCAL STORAGE
+          JIKA SUPABASE BELUM AKTIF
         */
 
         if (
           !supabaseClient
         ) {
+
 
           const localData =
             JSON.parse(
@@ -4200,31 +5532,33 @@
 
           localData.unshift({
 
+
             id:
               Date.now(),
 
-            name:
 
+            name:
               name,
 
-            guest_count:
 
+            guest_count:
               Number(
                 guestCount
               ),
 
-            attendance:
 
+            attendance:
               attendance,
 
-            message:
 
+            message:
               message,
 
-            created_at:
 
+            created_at:
               new Date()
                 .toISOString()
+
 
           });
 
@@ -4257,6 +5591,7 @@
 
           return;
 
+
         }
 
 
@@ -4280,23 +5615,24 @@
 
             .insert({
 
-              name:
 
+              name:
                 name,
 
-              guest_count:
 
+              guest_count:
                 Number(
                   guestCount
                 ),
 
-              attendance:
 
+              attendance:
                 attendance,
 
-              message:
 
+              message:
                 message
+
 
             });
 
@@ -4304,6 +5640,7 @@
         if (
           error
         ) {
+
 
           console.error(
             error
@@ -4320,6 +5657,7 @@
 
 
           return;
+
 
         }
 
@@ -4338,6 +5676,7 @@
 
         loadGuestbook();
 
+
       }
     );
 
@@ -4351,12 +5690,15 @@
       type
     ) {
 
+
       rsvpStatus.textContent =
         text;
+
 
       rsvpStatus.className =
         "rsvp-status show " +
         type;
+
 
     }
 
@@ -4367,12 +5709,14 @@
 
     async function loadGuestbook() {
 
+
       let messages = [];
 
 
       if (
         supabaseClient
       ) {
+
 
         const {
           data,
@@ -4402,12 +5746,16 @@
           data
         ) {
 
+
           messages =
             data;
 
+
         }
 
+
       } else {
+
 
         messages =
           JSON.parse(
@@ -4419,12 +5767,14 @@
 
           );
 
+
       }
 
 
       renderGuestbook(
         messages
       );
+
 
     }
 
@@ -4437,6 +5787,7 @@
       messages
     ) {
 
+
       const list =
         document.getElementById(
           "guestbookList"
@@ -4447,6 +5798,7 @@
         !messages ||
         messages.length === 0
       ) {
+
 
         list.innerHTML = `
 
@@ -4467,7 +5819,9 @@
 
         `;
 
+
         return;
+
 
       }
 
@@ -4479,6 +5833,7 @@
         (
           item
         ) => {
+
 
           const article =
             document.createElement(
@@ -4542,20 +5897,22 @@
             article
           );
 
+
         }
       );
+
 
     }
 
 
     /* =========================================================
        SECURITY
-       ESCAPE HTML
     ========================================================== */
 
     function escapeHTML(
       value
     ) {
+
 
       const div =
         document.createElement(
@@ -4568,6 +5925,7 @@
 
 
       return div.innerHTML;
+
 
     }
 
@@ -4585,6 +5943,7 @@
 
     function createFloatingFlowers() {
 
+
       const amount =
         window.innerWidth <
         768
@@ -4597,6 +5956,7 @@
         i < amount;
         i++
       ) {
+
 
         const flower =
           document.createElement(
@@ -4648,7 +6008,9 @@
           flower
         );
 
+
       }
+
 
     }
 
@@ -4669,11 +6031,13 @@
           link
         ) => {
 
+
           link.addEventListener(
             "click",
             (
               event
             ) => {
+
 
               const targetId =
                 link.getAttribute(
@@ -4686,7 +6050,9 @@
                 targetId === "#"
               ) {
 
+
                 return;
+
 
               }
 
@@ -4701,6 +6067,7 @@
                 target
               ) {
 
+
                 event.preventDefault();
 
 
@@ -4714,16 +6081,20 @@
 
                 });
 
+
               }
+
 
             }
           );
 
+
         }
       );
+
 
   </script>
 
 </body>
+
 </html>
-```
